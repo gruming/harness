@@ -152,20 +152,26 @@ inclusion: always
 > harness가 계층적 위임 패턴을 생성할 때 Kiro 호스트이면, 기본값으로 **전략 1(평탄화)**을 적용하고
 > 오케스트레이터 스킬에 그 사실을 기록한다.
 
-## 7. 설치 방식
+## 7. 설치 / 삭제
 
-Kiro CLI에는 플러그인 마켓플레이스가 없다. harness는 빌드가 없는 순수 마크다운 스킬이므로 **복사 설치**한다.
+Kiro CLI에는 플러그인 마켓플레이스가 없다. harness는 빌드가 없는 순수 마크다운 스킬이므로 **복사 설치**한다. Kiro는 user(전역)와 project(워크스페이스) 두 스코프를 지원하며, 워크스페이스가 전역보다 우선한다.
 
 ```bash
-# 저장소 루트의 install.sh 사용 (권장)
+# user 스코프 (전역, 기본) -> ~/.kiro/skills/harness
 ./install.sh --host kiro
-# → skills/harness 를 ~/.kiro/skills/harness 로 복사
 
-# 또는 수동 복사
+# project 스코프 (현재 워크스페이스) -> ./.kiro/skills/harness
+./install.sh --host kiro --scope project
+
+# 삭제 (--uninstall; 안전장치: SKILL.md 없는 디렉토리는 제거 거부)
+./install.sh --host kiro --uninstall                 # user 스코프 제거
+./install.sh --host kiro --scope project --uninstall # project 스코프 제거
+
+# 수동 복사도 가능
 cp -r skills/harness ~/.kiro/skills/harness
 ```
 
-설치 후 새 `kiro-cli` 세션에서 `~/.kiro/skills/harness/`가 자동 발견되며,
+설치 후 새 `kiro-cli` 세션에서 해당 스코프의 `.kiro/skills/harness/`가 자동 발견되며,
 "하네스 구성해줘" 자연어로 트리거된다. (`.claude-plugin/plugin.json`은 Claude Code 전용이며 Kiro는 무시한다.)
 
 ## 8. 검증 체크리스트 (Kiro)

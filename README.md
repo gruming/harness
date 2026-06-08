@@ -102,11 +102,16 @@ Kiro CLI has no plugin marketplace, so install by copying the skill. harness is
 pure markdown (no build step), so a copy is all it needs:
 
 ```shell
-# Using the installer (recommended)
+# user scope (global, default) -> ~/.kiro/skills/harness
 ./install.sh --host kiro
-# → copies skills/harness to ~/.kiro/skills/harness
 
-# Or copy manually
+# project scope (current workspace) -> ./.kiro/skills/harness
+./install.sh --host kiro --scope project
+
+# uninstall (safety: refuses to remove a dir without SKILL.md)
+./install.sh --host kiro --uninstall
+
+# or copy manually
 cp -r skills/harness ~/.kiro/skills/harness
 ```
 

@@ -5,7 +5,7 @@
 ## [Unreleased]
 
 ### Added
-- **Kiro CLI 런타임 지원** — `install.sh --host kiro|claude` 설치 스크립트, `skills/harness/references/kiro-runtime.md` 런타임 어댑터(도구 매핑, `.kiro/agents/*.json` 산출물 변환, 계층적 위임 우회), SKILL.md "런타임 호스트" 포인터. 기존 Claude Code 동작은 무변경
+- **Kiro CLI 런타임 지원** — `install.sh` 설치/삭제 스크립트(`--host kiro|claude`, `--scope user|project`, `--uninstall`), `skills/harness/references/kiro-runtime.md` 런타임 어댑터(도구 매핑, `.kiro/agents/*.json` 산출물 변환, 계층적 위임 우회), SKILL.md "런타임 호스트" 포인터. 기존 Claude Code 동작은 무변경
 - 신규 에이전트/스킬 생성 전 중복 검토 단계 (Phase 3-0, Phase 4-0)
 - `references/agent-design-patterns.md` "에이전트 재사용 설계" 섹션
 - `references/skill-writing-guide.md` §9 "스킬 재사용 설계"
