@@ -13,6 +13,12 @@ description: "하네스를 구성합니다. 전문 에이전트를 정의하며,
 3. **CLAUDE.md에 하네스 포인터를 등록한다.** — 새 세션에서 오케스트레이터 스킬이 트리거되도록 최소한의 포인터(트리거 규칙 + 변경 이력)만 기록한다.
 4. **하네스는 고정물이 아니라 진화하는 시스템이다.** — 매 실행 후 피드백을 반영하고, 에이전트·스킬·CLAUDE.md를 지속 갱신한다.
 
+## 런타임 호스트 (Runtime Host)
+
+harness의 기본 런타임은 **Claude Code**다. 아래 본문의 도구·경로(`TeamCreate`/`SendMessage`/`Agent` 도구, `.claude/agents/`, `CLAUDE.md`)는 Claude Code 기준이다.
+
+**Kiro CLI(`kiro-cli`)에서 실행하는 경우** — 작업 트리에 `.kiro/`가 있거나 사용자가 Kiro 사용을 명시하면 — 본문의 Claude Code 전용 요소를 `references/kiro-runtime.md`의 매핑으로 대체한다(`subagent`/`session-management` 도구, `.kiro/agents/*.json` 산출물, `.kiro/steering/` 포인터). 6-Phase 워크플로우와 6 아키텍처 패턴 자체는 런타임과 무관하게 동일하게 적용한다.
+
 ## 워크플로우
 
 ### Phase 0: 현황 감사

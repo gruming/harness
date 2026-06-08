@@ -96,6 +96,25 @@ Phase 6: Validation & Testing
 cp -r skills/harness ~/.claude/skills/harness
 ```
 
+### Kiro CLI
+
+Kiro CLI has no plugin marketplace, so install by copying the skill. harness is
+pure markdown (no build step), so a copy is all it needs:
+
+```shell
+# Using the installer (recommended)
+./install.sh --host kiro
+# → copies skills/harness to ~/.kiro/skills/harness
+
+# Or copy manually
+cp -r skills/harness ~/.kiro/skills/harness
+```
+
+When running under Kiro CLI, harness maps its Claude Code-specific tools and
+outputs to Kiro equivalents (`subagent` / `session-management`, `.kiro/agents/*.json`,
+`.kiro/steering/`). See [`skills/harness/references/kiro-runtime.md`](skills/harness/references/kiro-runtime.md).
+The 6-Phase workflow and the 6 architecture patterns are unchanged.
+
 ## Plugin Structure
 
 ```
